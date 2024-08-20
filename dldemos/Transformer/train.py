@@ -21,7 +21,10 @@ PAD_ID = 0
 
 
 def main():
-    device = 'cuda'
+    #device = 'cuda'
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print("use device :{}".format(device))
+
     cn2idx, idx2cn = load_cn_vocab()
     en2idx, idx2en = load_en_vocab()
     # X: en
